@@ -13,4 +13,36 @@ const sixBalls = () => {
 	}
 	return a;
 }
-console.log(sixBalls());
+let c = false;
+const delay = p => {
+	let i = 0, a = [];
+	const d = () => {
+		i++;
+		a.push(i);
+		if (p === 1 && c == 1) {
+			if (a.length > 1) {
+				console.clear();
+				a.shift();
+			}
+			if (a[0] === 50) {
+				i = 1;
+			}
+			console.log(i);
+		}
+	}
+	const t = setInterval(d, 10);
+	if (p === 1) {
+		return t;
+	}
+	else if (p === 0) {
+		return clearInterval(t);
+	}
+}
+const play = () => {
+	return c = true, delay(1);
+}
+setTimeout(play, 100);
+const score = () => {
+	return console.clear(), c = false, delay(0), console.log(c);
+}
+setTimeout(score, 5000);
