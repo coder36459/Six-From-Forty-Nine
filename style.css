@@ -35,3 +35,6 @@ background-color: orange;
 margin: 20px auto;
 width: 300px;
 }
+#result {
+display: none;
+}
