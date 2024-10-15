@@ -54,3 +54,22 @@ padding: 2.3em 0;
 #stop-btn, #reset-btn {
 display: none;
 }
+#coupon {
+padding: 0 0 2.3em;
+}
+#coupon-tab {
+margin: auto;
+width: 300px;
+}
+#coupon-tab, #coupon-tab th, #coupon-tab tr, #coupon-tab td {
+border: 1px solid rgb(245,182,245);
+border-collapse: collapse;
+}
+#coupon-tab th, #coupon-tab td {
+padding: 10px;
+}
+#coupon-tab th {
+background-color: rgb(245,182,245);
+color: rgb(30,4,30);
+text-align: justify;
+}
