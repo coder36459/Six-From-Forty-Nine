@@ -11,7 +11,7 @@ font-size: 1em;
 }
 h1 {
 font-size: 2.5em;
-margin: 1em 0;
+margin: .6em 0;
 }
 a {
 color: rgb(238,130,238);
@@ -21,6 +21,7 @@ li {
 background-color: rgb(255,215,0);
 border: 1px solid rgb(255,215,0);
 border-radius: 18px;
+cursor: default;
 color: rgb(30,4,30);
 display: inline-block;
 height: 36px;
@@ -34,6 +35,7 @@ button {
 background-color: rgb(229,61,229);
 border: 1px solid rgb(229,61,229);
 border-radius: 6px;
+color: rgb(30,4,30);
 font-size: 1em;
 padding: 6px;
 width: 100px;
@@ -49,7 +51,7 @@ margin: auto;
 width: 300px;
 }
 #btns {
-padding: 2.3em 0;
+padding: 1.6em 0;
 }
 #stop-btn, #reset-btn {
 display: none;
@@ -72,4 +74,10 @@ padding: 10px;
 background-color: rgb(245,182,245);
 color: rgb(30,4,30);
 text-align: justify;
+}
+button, .btn {
+cursor: pointer;
+}
+.btn:hover {
+background-color: rgb(82,11,82);
 }
