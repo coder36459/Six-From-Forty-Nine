@@ -21,7 +21,19 @@ const sixBalls = () => {
 	return a;
 }
 reset();
-let playerChoice = [];
+let playerChoice = []
+const drawnBalls = sixBalls();
+const compareContents = (a, b) => {
+	let commonParts = [];
+	for (const x in a) {
+		for (const y in b) {
+			if (a[x] === b[y]) {
+				commonParts.push(a[x]);
+			}
+		}
+	}
+	return commonParts;
+}
 const delay = b => {
 	let i = 0, a = [], t;
 	const d = () => {
@@ -40,8 +52,12 @@ const delay = b => {
 		t = setInterval(d, 10);
 	}
 	stopBtn.addEventListener("click", () => {
-		const f = sixBalls();
-		for (let x = 0; x < 6; x++) {ball[x].innerText = f[x];}
+		for (let x = 0; x < 6; x++) {ball[x].innerText = drawnBalls[x];}
+		const hit = compareContents(drawnBalls, playerChoice);
+		for (const x in hit) {
+			cds[hit[x] - 1].style.backgroundColor = "rgb(255,215,0)";
+			cds[hit[x] - 1].style.color = "rgb(30,4,30)";
+		}
 		clearInterval(t);
 		t = null;
 		playBtn.style.display = "none";
@@ -52,17 +68,27 @@ const delay = b => {
 		reset();
 		clearInterval(t);
 		t = null;
-		for (const x in playerChoice) {cds[playerChoice[x] - 1].style.backgroundColor = "rgb(48,6,48)";}
+		for (const x in playerChoice) {
+			cds[playerChoice[x] - 1].style.backgroundColor = "rgb(48,6,48)";
+			cds[playerChoice[x] - 1].style.color = "rgb(255,255,255)";
+		}
 		playerChoice = [];
+		console.clear()
 		playBtn.style.display = "inline-block";
 		resetBtn.style.display = "none";
 		stopBtn.style.display = "none";
 	});
 }
 playBtn.addEventListener("click", () => {
-	for (let x = 0; x < 6; x++) {ball[x].innerText = delay(ball[x]) === undefined ? "$" : delay(ball[x]);}
-	playBtn.style.display = "none";
-	stopBtn.style.display = "inline-block";
+	if (playerChoice.length === 6) {
+		for (let x = 0; x < 6; x++) {ball[x].innerText = delay(ball[x]) === undefined ? "$" : delay(ball[x]);}
+		playBtn.style.display = "none";
+		stopBtn.style.display = "inline-block";
+	}
+	else {
+		alert("Choose six numbers from 1 to 49 on the coupon.");
+	
+	}
 });
 const createCoupon = () => {
 	let a = [];
@@ -90,7 +116,7 @@ const btns = document.querySelectorAll(".btn");
 btns.forEach(btn => {btn.addEventListener("click", () => {
 	const b = btn.innerText, c = playerChoice.indexOf(b);
 	if (playerChoice.length < 6 && c < 0) {
-		playerChoice.push(b);
+		playerChoice.push(parseInt(b));
 	}
 	else {
 		return;
@@ -98,4 +124,5 @@ btns.forEach(btn => {btn.addEventListener("click", () => {
 	for (const x in playerChoice) {
 		cds[playerChoice[x] - 1].style.backgroundColor = "rgb(169,23,169)";
 	}
+
 });});
