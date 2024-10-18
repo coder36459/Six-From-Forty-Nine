@@ -36,6 +36,7 @@ background-color: rgb(229,61,229);
 border: 1px solid rgb(229,61,229);
 border-radius: 6px;
 color: rgb(30,4,30);
+cursor: pointer;
 font-size: 1em;
 padding: 6px;
 width: 100px;
@@ -67,17 +68,27 @@ width: 300px;
 border: 1px solid rgb(245,182,245);
 border-collapse: collapse;
 }
-#coupon-tab th, #coupon-tab td {
+#coupon-tab th {
 padding: 10px;
+}
+#coupon-tab td {
+padding: 5px;
 }
 #coupon-tab th {
 background-color: rgb(245,182,245);
 color: rgb(30,4,30);
 text-align: justify;
 }
-button, .btn {
+#number-of-matches {
+text-align: right!important;
+}
+.btn {
 cursor: pointer;
+display: block;
+height: 30px;
+line-height: 1.8;
+width: 30px;
 }
 .btn:hover {
-background-color: rgb(82,11,82);
+background-color: rgb(82,11,82)!important;
 }
